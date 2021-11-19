@@ -1,0 +1,81 @@
+  {% include 'layout/header.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>{{page_title}}</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">{{page_title}}</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">{{title}}</h3>
+
+                <div class="card-tools">
+                 
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+               {{hasil | safe}}
+              
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+
+
+        <!-- ajax perior -->
+        <div id="matching"></div>
+        <div id="hitung_cp"></div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  <script type="text/javascript">
+  function matching() {
+    // body...
+    $.ajax({
+      'url' : "{% url 'matching' %}",
+      success : function(data){
+        $('#matching').html(data)
+      }
+    })
+    hitung_cp()
+  }
+  function hitung_cp() {
+    // body...
+    $.ajax({
+      'url' : "{% url 'hitung_cp' %}",
+      success : function(data){
+        $('#hitung_cp').html(data)
+      }
+    })
+  }
+  
+  matching()
+  </script>
+{% include 'layout/footer.html' %}

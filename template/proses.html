@@ -1,0 +1,91 @@
+  {% include 'layout/header.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>{{page_title}}</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">{{page_title}}</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">{{title}}</h3>
+
+                <div class="card-tools">
+                 
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+               {{hasil | safe}}
+              
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+
+
+        <!-- ajax perior -->
+        <div id="perior"></div>
+        <div id="conditional"></div>
+        <div id="dataset"></div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  <script type="text/javascript">
+  function perior() {
+    // body...
+    $.ajax({
+      'url' : "{% url 'perior' %}",
+      success : function(data){
+        $('#perior').html(data)
+      }
+    })
+    conditional()
+  }
+  function conditional() {
+    // body...
+    $.ajax({
+      'url' : "{% url 'conditional' %}",
+      success : function(data){
+        $('#conditional').html(data)
+      }
+    })
+    dataset()
+  }
+  function dataset() {
+    // body...
+    $.ajax({
+      'url' : "{% url 'dataset' %}",
+      success : function(data){
+        $('#dataset').html(data)
+      }
+    })
+  }
+  perior()
+  </script>
+{% include 'layout/footer.html' %}

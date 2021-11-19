@@ -1,0 +1,72 @@
+
+
+      <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Hasil Total dari perkalian nilai conditional probabilities dengan term frequency-nya</h3>
+
+               
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+               {{data | safe}}
+              
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+
+
+
+
+       
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Probabilitas dari Komentar terhadap Masing masing klasifikasi :</h3>
+
+                <div class="card-tools">
+                 
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+               {{hasil | safe}}
+              
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+
+
+       
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title"><b>Hasil klasifikasi</b></h3>
+
+              
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <p>Dari hasil perhitungan probabilitas di atas diketahui bahwa probabilitas <b>Komentar</b> terhadap <b>{{ hasil_klasifikasi }}</b> memiliki nilai yang paling tinggi, yaitu <b>{{nilai_tertinggi}}</b></p>
+              <p>Sehingga <b>Komenta</b> Ini Masuk kedalam kelas <b>{{ hasil_klasifikasi }}</b></p>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+
